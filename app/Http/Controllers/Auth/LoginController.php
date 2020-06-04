@@ -52,12 +52,15 @@ class LoginController extends Controller
     //     return 'username';
     // }
 
-    public function authenticate(Request $request)
+    protected function credentials(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-        dd($credentials);
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard');
-        }
+        $field = filter_var($request->get($this->username()), FILTER_VALIDATE_EMAIL)
+        ? 'email'
+        : 'username';
+
+        return [
+            $field => $request->get($this->username()),
+            'password' => $request->password,
+        ];
     }
 }

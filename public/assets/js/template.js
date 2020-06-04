@@ -10,17 +10,17 @@
     
 
     // For Buy Now button. 
-    $("body").prepend('\
-      <div class="buy-now-wrapper">\
-        <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank" class="btn btn-primary text-white font-weight-bold btn-icon-text">\
-          <i data-feather="file-text"></i>\
-        </a>\
-        <a href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935" target="_blank" class="btn btn-danger text-white font-weight-bold btn-icon-text">\
-        <i class="btn-icon-prepend" data-feather="shopping-cart"></i>\
-        Buy Now\
-      </a>\
-      </div>\
-    ');
+    // $("body").prepend('\
+    //   <div class="buy-now-wrapper">\
+    //     <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank" class="btn btn-primary text-white font-weight-bold btn-icon-text">\
+    //       <i data-feather="file-text"></i>\
+    //     </a>\
+    //     <a href="https://themeforest.net/item/nobleui-admin-dashboard-template/24606935" target="_blank" class="btn btn-danger text-white font-weight-bold btn-icon-text">\
+    //     <i class="btn-icon-prepend" data-feather="shopping-cart"></i>\
+    //     Buy Now\
+    //   </a>\
+    //   </div>\
+    // ');
 
     // Enable feather-icons with SVG markup
     feather.replace();

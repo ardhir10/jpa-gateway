@@ -7,21 +7,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>NobleUI Responsive Bootstrap 4 Dashboard Template</title>
+    <title>{{$title}}</title>
     <!-- core:css -->
-    <link rel="stylesheet" href="../assets/vendors/core/core.css">
+    <link rel="stylesheet" href="{{asset('/')}}/assets/vendors/core/core.css">
     <!-- endinject -->
     <!-- plugin css for this page -->
-    <link rel="stylesheet" href="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="{{asset('/')}}/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="{{asset('/')}}/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="{{asset('/')}}/assets/vendors/sweetalert2/sweetalert2.min.css">
+
     <!-- end plugin css for this page -->
     <!-- inject:css -->
-    {{-- <link rel="stylesheet" href="../assets/fonts/feather-font/css/iconfont.css"> --}}
-    <link rel="stylesheet" href="../assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    {{-- <link rel="stylesheet" href="{{asset('/')}}/assets/fonts/feather-font/css/iconfont.css"> --}}
+    <link rel="stylesheet" href="{{asset('/')}}/assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="../assets/css/demo_2/style.css">
+    <link rel="stylesheet" href="{{asset('/')}}/assets/css/demo_2/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../assets/images/favicon.png" />
+    <link rel="shortcut icon" href="{{asset('/')}}/assets/images/favicon.png" />
     @stack('css')
 </head>
 
@@ -40,12 +43,19 @@
 
             <div class="page-content">
 
+                <div class="d-flex justify-content-between align-items-center flex-wrap grid-margin">
+                    <div>
+                        <h4 class="mb-3 mb-md-0">{{$page_title}}</h4>
+                    </div>
+
+                </div>
                 @yield('content')
+
 
             </div>
 
             <!-- partial:partials/_footer.html -->
-            @include('layouts/partials/_footer')
+            {{-- @include('layouts/partials/_footer') --}}
 
             <!-- partial -->
 
@@ -53,22 +63,22 @@
     </div>
 
     <!-- core:js -->
-    <script src="../assets/vendors/core/core.js"></script>
+    <script src="{{asset('/')}}/assets/vendors/core/core.js"></script>
     <!-- endinject -->
     <!-- plugin js for this page -->
-    <script src="../assets/vendors/chartjs/Chart.min.js"></script>
-    <script src="../assets/vendors/jquery.flot/jquery.flot.js"></script>
-    <script src="../assets/vendors/jquery.flot/jquery.flot.resize.js"></script>
-    <script src="../assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <script src="../assets/vendors/apexcharts/apexcharts.min.js"></script>
-    <script src="../assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="{{asset('/')}}/assets/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="{{asset('/')}}/assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+    <script src="{{asset('/')}}/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="{{asset('/')}}/assets/vendors/progressbar.js/progressbar.min.js"></script>
+
     <!-- end plugin js for this page -->
     <!-- inject:js -->
-    <script src="../assets/vendors/feather-icons/feather.min.js"></script>
-    <script src="../assets/js/template.js"></script>
-    <!-- endinject -->
+    <script src="{{asset('/')}}/assets/vendors/feather-icons/feather.min.js"></script>
+    <script src="{{asset('/')}}/assets/js/template.js"></script>
+    <script src="{{asset('/')}}/assets/js/data-table.js"></script>
+    <script src="{{asset('/')}}/assets/vendors/sweetalert2/sweetalert2.min.js"></script>
 
-
+    <script src="{{asset('/')}}/assets/js/sweet-alert.js"></script>
     <script>
         // ACTIVE MENU JS
         var path = window.location.href; // because the 'href' property of the DOM element is the absolute path
@@ -89,6 +99,29 @@
 
     </script>
     @stack('js')
+    <script>
+        function deleteData(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    // Swal.fire(
+                    //     'Deleted!',
+                    //     'Your file has been deleted.' + id,
+                    //     'success'
+                    // )
+                    window.location = url+id+'/delete';
+                }
+            })
+        }
+
+    </script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-header">
         <a href="#" class="sidebar-brand">
-            Noble<span>UI</span>
+            <span>Reallice</span>
         </a>
         <div class="sidebar-toggler not-active">
             <span></span>
@@ -18,11 +18,22 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
-             
+            <li class="nav-item">
+                <a href="{{route('users.index')}}" class="nav-link">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">User Management</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('logout')}}" class="nav-link">
+                    <i class="link-icon" data-feather="log-out"></i>
+                    <span class="link-title">Log Out</span>
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
-<nav class="settings-sidebar">
+{{-- <nav class="settings-sidebar">
     <div class="sidebar-body">
         <a href="#" class="settings-sidebar-toggler">
             <i data-feather="settings"></i>
@@ -38,4 +49,4 @@
             </a>
         </div>
     </div>
-</nav>
+</nav> --}}
